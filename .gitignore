@@ -1,12 +1,12 @@
 *.tar.gz
 
 *.exe
-src/blackmore
-src/blackmored
-src/blackmore-cli
-src/blackmore-tx
-src/test/test_blackmore
-src/qt/test/test_blackmore-qt
+src/granadeiro
+src/granadeirod
+src/granadeiro-cli
+src/granadeiro-tx
+src/test/test_granadeiro
+src/qt/test/test_granaideiro-qt
 
 # autoreconf
 Makefile.in
@@ -45,11 +45,11 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
-src/qt/blackmore-qt.config
-src/qt/blackmore-qt.creator
-src/qt/blackmore-qt.creator.user
-src/qt/blackmore-qt.files
-src/qt/blackmore-qt.includes
+src/qt/granadeiro-qt.config
+src/qt/granadeiro-qt.creator
+src/qt/granadeiro-qt.creator.user
+src/qt/granadeiro-qt.files
+src/qt/granadeiro-qt.includes
 
 .deps
 .dirstamp
@@ -86,8 +86,8 @@ src/qt/blackmore-qt.includes
 *.qm
 Makefile
 !depends/Makefile
-src/qt/blackmore-qt
-Blackmore-Qt.app
+src/qt/granadeiro-qt
+Granadeiro-Qt.app
 background.tiff*
 
 # Qt Creator
@@ -95,7 +95,7 @@ Makefile.am.user
 
 # Unit-tests
 Makefile.test
-blackmore-qt_test
+granadeiro-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -135,9 +135,6 @@ contrib/devtools/split-debug.sh
 #Visual Studio
 .vscode/*
 .vs/*
-
-# clang-check
-*.plist
 
 osx_volname
 dist/
