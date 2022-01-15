@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018 The Granadeiro Developers
+// Copyright (c) 2014-2018 The BlackCoin Developers
 // Copyright (c) 2011-2013 The PPCoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -6,18 +6,20 @@
 // Stake cache by Qtum
 // Copyright (c) 2016-2018 The Qtum developers
 
-#ifndef GRANADEIRO_POS_H
-#define GRANADEIRO_POS_H
+#ifndef BLACKCOIN_POS_H
+#define BLACKCOIN_POS_H
 
-#include "pos.h"
-#include "txdb.h"
-#include "main.h"
-#include "arith_uint256.h"
-#include "consensus/validation.h"
-#include "hash.h"
-#include "timedata.h"
-#include "chainparams.h"
-#include "script/sign.h"
+#include <chain.h>
+#include <primitives/transaction.h>
+#include <consensus/validation.h>
+#include <txdb.h>
+#include <main.h>
+#include <arith_uint256.h>
+#include <hash.h>
+#include <timedata.h>
+#include <chainparams.h>
+#include <script/sign.h>
+#include <consensus/consensus.h>
 #include <stdint.h>
 
 using namespace std;
@@ -41,4 +43,4 @@ bool CheckStakeKernelHash(const CBlockIndex* pindexPrev, unsigned int nBits, con
 bool CheckProofOfStake(CBlockIndex* pindexPrev, const CTransaction& tx, unsigned int nBits, CValidationState &state);
 void CacheKernel(std::map<COutPoint, CStakeCache>& cache, const COutPoint& prevout, CBlockIndex* pindexPrev);
 bool VerifySignature(const CTransaction& txFrom, const CTransaction& txTo, unsigned int nIn, unsigned int flags, int nHashType);
-#endif // GRANADEIRO_POS_H
+#endif // BLACKCOIN_POS_H
