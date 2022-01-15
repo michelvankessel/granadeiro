@@ -1,12 +1,14 @@
 *.tar.gz
 
 *.exe
-src/granadeiro
-src/granadeirod
-src/granadeiro-cli
-src/granadeiro-tx
-src/test/test_granadeiro
-src/qt/test/test_granaideiro-qt
+src/usdi
+src/usdid
+src/usdi-cli
+src/usdi-tx
+src/test/test_usdi
+src/qt/test/test_usdi-qt
+src/test/test_usdi
+src/qt/test/test_usdi-qt
 
 # autoreconf
 Makefile.in
@@ -45,17 +47,17 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
-src/qt/granadeiro-qt.config
-src/qt/granadeiro-qt.creator
-src/qt/granadeiro-qt.creator.user
-src/qt/granadeiro-qt.files
-src/qt/granadeiro-qt.includes
+src/qt/usdi-qt.config
+src/qt/usdi-qt.creator
+src/qt/usdi-qt.creator.user
+src/qt/usdi-qt.files
+src/qt/usdi-qt.includes
 
 .deps
 .dirstamp
 .libs
 .*.swp
-*.*~*
+*~
 *.bak
 *.rej
 *.orig
@@ -70,9 +72,12 @@ src/qt/granadeiro-qt.includes
 *.log
 *.trs
 *.dmg
+*.iso
 
 *.json.h
 *.raw.h
+
+*.tmp
 
 # Only ignore unexpected patches
 *.patch
@@ -86,8 +91,8 @@ src/qt/granadeiro-qt.includes
 *.qm
 Makefile
 !depends/Makefile
-src/qt/granadeiro-qt
-Granadeiro-Qt.app
+src/qt/usdi-qt
+USDI-Qt.app
 background.tiff*
 
 # Qt Creator
@@ -95,7 +100,7 @@ Makefile.am.user
 
 # Unit-tests
 Makefile.test
-granadeiro-qt_test
+usdi-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -114,7 +119,10 @@ releases
 /*.info
 test_bitcoin.coverage/
 total.coverage/
+fuzz.coverage/
 coverage_percent.txt
+/cov_tool_wrapper.sh
+qa-assets/
 
 #build tests
 linux-coverage-build
@@ -122,6 +130,7 @@ linux-build
 win32-build
 test/config.ini
 test/cache/*
+test/.mypy_cache/
 qa/pull-tester/run-bitcoind-for-test.sh
 qa/pull-tester/tests_config.py
 
