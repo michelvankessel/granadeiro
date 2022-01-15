@@ -67,7 +67,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "Granadeiro cannot be compiled without assertions."
+# error "USDI cannot be compiled without assertions."
 #endif
 
 /**
@@ -131,7 +131,7 @@ static void CheckBlockIndex(const Consensus::Params& consensusParams);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Granadeiro Signed Message:\n";
+const string strMessageMagic = "USDI Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -1247,7 +1247,7 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState& state, const C
         // LogPrintf("tx_out value %d, minimum value %d dust count %d", txout.nValue, min_dust, dust_tx_count);
         if (txout.nValue < min_dust)
             dust_tx_count = dust_tx_count + 1;
-        if (dust_tx_count > 10)
+        if (dust_tx_count > 2)
             return state.DoS(0, false, REJECT_DUST, "too many dust vouts");
 
     }
@@ -1780,19 +1780,12 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 
 CAmount GetProofOfWorkSubsidy()
 {
-    int nBlockHeight = chainActive.Height() + 1;
-
-    if (nBlockHeight == 1) {
-     return 4400000 * COIN;
-    }
-    if (nBlockHeight != 1) {
-    return 10000 * COIN;
-    }
+    return COIN * 1 / 20;
 }
 
 CAmount GetProofOfStakeSubsidy()
 {
-    return COIN * 9999;
+    return COIN * 1 / 20;
 }
 
 bool IsInitialBlockDownload()
@@ -2507,9 +2500,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
     // BIP66 is always active
     flags |= SCRIPT_VERIFY_DERSIG;
-    // Granadeiro also requires DER encoding of pubkeys
+    // USDI also requires DER encoding of pubkeys
     flags |= SCRIPT_VERIFY_DERKEY;
-    // Granadeiro also requires low S in sigs
+    // USDI also requires low S in sigs
     flags |= SCRIPT_VERIFY_LOW_S;
 
     // Start enforcing CHECKLOCKTIMEVERIFY, (BIP65) since protocol v3
