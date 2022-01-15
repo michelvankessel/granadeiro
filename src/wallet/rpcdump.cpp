@@ -549,11 +549,11 @@ UniValue dumpprivkey(const UniValue& params, bool fHelp)
     
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "dumpprivkey \"granadeiroaddress\"\n"
-            "\nReveals the private key corresponding to 'granadeiroaddress'.\n"
+            "dumpprivkey \"usdiaddress\"\n"
+            "\nReveals the private key corresponding to 'usdiaddress'.\n"
             "Then the importprivkey can be used with this output\n"
             "\nArguments:\n"
-            "1. \"granadeiroaddress\"   (string, required) The granadeiro address for the private key\n"
+            "1. \"usdiaddress\"   (string, required) The usdi address for the private key\n"
             "\nResult:\n"
             "\"key\"                (string) The private key\n"
             "\nExamples:\n"

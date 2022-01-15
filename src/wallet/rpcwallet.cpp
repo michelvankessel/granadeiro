@@ -10,6 +10,7 @@
 #include "init.h"
 #include "main.h"
 #include "net.h"
+#include "pos.h"
 #include "rpc/server.h"
 #include "timedata.h"
 #include "util.h"
@@ -26,6 +27,7 @@
 using namespace std;
 
 int64_t nWalletUnlockTime;
+int64_t nWalletFirstStakeTime = -1;
 static CCriticalSection cs_nWalletUnlockTime;
 
 static void accountingDeprecationCheck()
@@ -115,13 +117,13 @@ UniValue getnewaddress(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "getnewaddress ( \"account\" )\n"
-            "\nReturns a new Granadeiro address for receiving payments.\n"
+            "\nReturns a new usdi address for receiving payments.\n"
             "If 'account' is specified (DEPRECATED), it is added to the address book \n"
             "so payments received with the address will be credited to 'account'.\n"
             "\nArguments:\n"
             "1. \"account\"        (string, optional) DEPRECATED. The account name for the address to be linked to. If not provided, the default account \"\" is used. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created if there is no account by the given name.\n"
             "\nResult:\n"
-            "\"granadeiroaddress\"    (string) The new granadeiro address\n"
+            "\"usdiaddress\"    (string) The new usdi address\n"
             "\nExamples:\n"
             + HelpExampleCli("getnewaddress", "")
             + HelpExampleRpc("getnewaddress", "")
@@ -166,11 +168,11 @@ UniValue getaccountaddress(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "getaccountaddress \"account\"\n"
-            "\nDEPRECATED. Returns the current Granadeiro address for receiving payments to this account.\n"
+            "\nDEPRECATED. Returns the current USDI address for receiving payments to this account.\n"
             "\nArguments:\n"
             "1. \"account\"       (string, required) The account name for the address. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.\n"
             "\nResult:\n"
-            "\"granadeiroaddress\"   (string) The account granadeiro address\n"
+            "\"usdiaddress\"   (string) The account usdi address\n"
             "\nExamples:\n"
             + HelpExampleCli("getaccountaddress", "")
             + HelpExampleCli("getaccountaddress", "\"\"")
@@ -198,7 +200,7 @@ UniValue getrawchangeaddress(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "getrawchangeaddress\n"
-            "\nReturns a new Granadeiro address, for receiving change.\n"
+            "\nReturns a new USDI address, for receiving change.\n"
             "This is for use with raw transactions, NOT normal use.\n"
             "\nResult:\n"
             "\"address\"    (string) The address\n"
@@ -231,10 +233,10 @@ UniValue setaccount(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount \"granadeiroaddress\" \"account\"\n"
+            "setaccount \"usdiaddress\" \"account\"\n"
             "\nDEPRECATED. Sets the account associated with the given address.\n"
             "\nArguments:\n"
-            "1. \"granadeiroaddress\"  (string, required) The granadeiro address to be associated with an account.\n"
+            "1. \"usdiaddress\"  (string, required) The usdi address to be associated with an account.\n"
             "2. \"account\"         (string, required) The account to assign the address to.\n"
             "\nExamples:\n"
             + HelpExampleCli("setaccount", "\"1D1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XZ\" \"tabby\"")
@@ -246,7 +248,7 @@ UniValue setaccount(const UniValue& params, bool fHelp)
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest)) {
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY,
-                           "Invalid Granadeiro address");
+                           "Invalid USDI address");
     }
 
     string strAccount;
@@ -279,10 +281,10 @@ UniValue getaccount(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount \"granadeiroaddress\"\n"
+            "getaccount \"usdiaddress\"\n"
             "\nDEPRECATED. Returns the account associated with the given address.\n"
             "\nArguments:\n"
-            "1. \"granadeiroaddress\"  (string, required) The granadeiro address for account lookup.\n"
+            "1. \"usdiaddress\"  (string, required) The usdi address for account lookup.\n"
             "\nResult:\n"
             "\"accountname\"        (string) the account address\n"
             "\nExamples:\n"
@@ -295,7 +297,7 @@ UniValue getaccount(const UniValue& params, bool fHelp)
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest)) {
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY,
-                           "Invalid Granadeiro address");
+                           "Invalid USDI address");
     }
 
     std::string strAccount;
@@ -320,7 +322,7 @@ UniValue getaddressesbyaccount(const UniValue& params, bool fHelp)
             "1. \"account\"  (string, required) The account name.\n"
             "\nResult:\n"
             "[                     (json array of string)\n"
-            "  \"granadeiroaddress\"  (string) a granadeiro address associated with the given account\n"
+            "  \"usdiaddress\"  (string) a usdi address associated with the given account\n"
             "  ,...\n"
             "]\n"
             "\nExamples:\n"
@@ -394,11 +396,11 @@ UniValue sendtoaddress(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() < 2 || params.size() > 5)
         throw runtime_error(
-            "sendtoaddress \"granadeiroaddress\" amount ( \"comment\" \"comment-to\" subtractfeefromamount )\n"
+            "sendtoaddress \"usdiaddress\" amount ( \"comment\" \"comment-to\" subtractfeefromamount )\n"
             "\nSend an amount to a given address.\n"
             + HelpRequiringPassphrase() +
             "\nArguments:\n"
-            "1. \"granadeiroaddress\"  (string, required) The granadeiro address to send to.\n"
+            "1. \"usdiaddress\"  (string, required) The usdi address to send to.\n"
             "2. \"amount\"      (numeric or string, required) The amount in " + CURRENCY_UNIT + " to send. eg 0.1\n"
             "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
             "                             This is not part of the transaction, just kept in your wallet.\n"
@@ -406,7 +408,7 @@ UniValue sendtoaddress(const UniValue& params, bool fHelp)
             "                             to which you're sending the transaction. This is not part of the \n"
             "                             transaction, just kept in your wallet.\n"
             "5. subtractfeefromamount  (boolean, optional, default=false) The fee will be deducted from the amount being sent.\n"
-            "                             The recipient will receive less granadeiros than you enter in the amount field.\n"
+            "                             The recipient will receive less usdi than you enter in the amount field.\n"
             "\nResult:\n"
             "\"transactionid\"  (string) The transaction id.\n"
             "\nExamples:\n"
@@ -461,7 +463,7 @@ UniValue listaddressgroupings(const UniValue& params, bool fHelp)
             "[\n"
             "  [\n"
             "    [\n"
-            "      \"granadeiroaddress\",     (string) The granadeiro address\n"
+            "      \"usdiaddress\",     (string) The usdi address\n"
             "      amount,                 (numeric) The amount in " + CURRENCY_UNIT + "\n"
             "      \"account\"             (string, optional) The account (DEPRECATED)\n"
             "    ]\n"
@@ -506,11 +508,11 @@ UniValue signmessage(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage \"granadeiroaddress\" \"message\"\n"
+            "signmessage \"usdiaddress\" \"message\"\n"
             "\nSign a message with the private key of an address"
             + HelpRequiringPassphrase() + "\n"
             "\nArguments:\n"
-            "1. \"granadeiroaddress\"  (string, required) The granadeiro address to use for the private key.\n"
+            "1. \"usdiaddress\"  (string, required) The usdi address to use for the private key.\n"
             "2. \"message\"         (string, required) The message to create a signature of.\n"
             "\nResult:\n"
             "\"signature\"          (string) The signature of the message encoded in base 64\n"
@@ -562,10 +564,10 @@ UniValue getreceivedbyaddress(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress \"granadeiroaddress\" ( minconf )\n"
-            "\nReturns the total amount received by the given granadeiro address in transactions with at least minconf confirmations.\n"
+            "getreceivedbyaddress \"usdiaddress\" ( minconf )\n"
+            "\nReturns the total amount received by the given usdi address in transactions with at least minconf confirmations.\n"
             "\nArguments:\n"
-            "1. \"granadeiroaddress\"  (string, required) The granadeiro address for transactions.\n"
+            "1. \"usdiaddress\"  (string, required) The usdi address for transactions.\n"
             "2. minconf             (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
             "\nResult:\n"
             "amount   (numeric) The total amount in " + CURRENCY_UNIT + " received at this address.\n"
@@ -585,7 +587,7 @@ UniValue getreceivedbyaddress(const UniValue& params, bool fHelp)
     // Bitcoin address
     CTxDestination dest = DecodeDestination(params[0].get_str());
     if (!IsValidDestination(dest)) {
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Granadeiro address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid USDI address");
     }
     CScript scriptPubKey = GetScriptForDestination(dest);
     if (!IsMine(*pwalletMain, scriptPubKey))
@@ -821,12 +823,12 @@ UniValue sendfrom(const UniValue& params, bool fHelp)
 
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-            "sendfrom \"fromaccount\" \"togranadeiroaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
-            "\nDEPRECATED (use sendtoaddress). Sent an amount from an account to a granadeiro address."
+            "sendfrom \"fromaccount\" \"tousdiaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
+            "\nDEPRECATED (use sendtoaddress). Sent an amount from an account to a usdi address."
             + HelpRequiringPassphrase() + "\n"
             "\nArguments:\n"
             "1. \"fromaccount\"       (string, required) The name of the account to send funds from. May be the default account using \"\".\n"
-            "2. \"togranadeiroaddress\"  (string, required) The granadeiro address to send funds to.\n"
+            "2. \"tousdiaddress\"  (string, required) The usdi address to send funds to.\n"
             "3. amount                (numeric or string, required) The amount in " + CURRENCY_UNIT + " (transaction fee is added on top).\n"
             "4. minconf               (numeric, optional, default=1) Only use funds with at least this many confirmations.\n"
             "5. \"comment\"           (string, optional) A comment used to store what the transaction is for. \n"
@@ -851,7 +853,7 @@ UniValue sendfrom(const UniValue& params, bool fHelp)
     CTxDestination dest = DecodeDestination(params[1].get_str());
     if (!IsValidDestination(dest)) {
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY,
-                           "Invalid Granadeiro address");
+                           "Invalid USDI address");
     }
     CAmount nAmount = AmountFromValue(params[2]);
     if (nAmount <= 0)
@@ -894,14 +896,14 @@ UniValue sendmany(const UniValue& params, bool fHelp)
             "1. \"fromaccount\"         (string, required) DEPRECATED. The account to send the funds from. Should be \"\" for the default account\n"
             "2. \"amounts\"             (string, required) A json object with addresses and amounts\n"
             "    {\n"
-            "      \"address\":amount   (numeric or string) The granadeiro address is the key, the numeric amount (can be string) in " + CURRENCY_UNIT + " is the value\n"
+            "      \"address\":amount   (numeric or string) The usdi address is the key, the numeric amount (can be string) in " + CURRENCY_UNIT + " is the value\n"
             "      ,...\n"
             "    }\n"
             "3. minconf                 (numeric, optional, default=1) Only use the balance confirmed at least this many times.\n"
             "4. \"comment\"             (string, optional) A comment\n"
             "5. subtractfeefromamount   (string, optional) A json array with addresses.\n"
             "                           The fee will be equally deducted from the amount of each selected address.\n"
-            "                           Those recipients will receive less granadeiros than you enter in their corresponding amount field.\n"
+            "                           Those recipients will receive less usdi than you enter in their corresponding amount field.\n"
             "                           If no addresses are specified here, the sender pays the fee.\n"
             "    [\n"
             "      \"address\"            (string) Subtract fee from this address\n"
@@ -947,7 +949,7 @@ UniValue sendmany(const UniValue& params, bool fHelp)
         CTxDestination dest = DecodeDestination(name_);
         if (!IsValidDestination(dest)) {
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY,
-                               std::string("Invalid Granadeiro address: ") +
+                               std::string("Invalid USDI address: ") +
                                    name_);
         }
 
@@ -1008,20 +1010,20 @@ UniValue addmultisigaddress(const UniValue& params, bool fHelp)
     {
         string msg = "addmultisigaddress nrequired [\"key\",...] ( \"account\" )\n"
             "\nAdd a nrequired-to-sign multisignature address to the wallet.\n"
-            "Each key is a Granadeiro address or hex-encoded public key.\n"
+            "Each key is a USDI address or hex-encoded public key.\n"
             "If 'account' is specified (DEPRECATED), assign address to that account.\n"
 
             "\nArguments:\n"
             "1. nrequired        (numeric, required) The number of required signatures out of the n keys or addresses.\n"
-            "2. \"keysobject\"   (string, required) A json array of granadeiro addresses or hex-encoded public keys\n"
+            "2. \"keysobject\"   (string, required) A json array of usdi addresses or hex-encoded public keys\n"
             "     [\n"
-            "       \"address\"  (string) granadeiro address or hex-encoded public key\n"
+            "       \"address\"  (string) usdi address or hex-encoded public key\n"
             "       ...,\n"
             "     ]\n"
             "3. \"account\"      (string, optional) DEPRECATED. An account to assign the addresses to.\n"
 
             "\nResult:\n"
-            "\"granadeiroaddress\"  (string) A granadeiro address associated with the keys.\n"
+            "\"usdiaddress\"  (string) A usdi address associated with the keys.\n"
 
             "\nExamples:\n"
             "\nAdd a multisig address from 2 addresses\n"
@@ -1383,7 +1385,7 @@ UniValue listtransactions(const UniValue& params, bool fHelp)
             "  {\n"
             "    \"account\":\"accountname\",       (string) DEPRECATED. The account name associated with the transaction. \n"
             "                                                It will be \"\" for the default account.\n"
-            "    \"address\":\"granadeiroaddress\",    (string) The granadeiro address of the transaction. Not present for \n"
+            "    \"address\":\"usdiaddress\",    (string) The usdi address of the transaction. Not present for \n"
             "                                                move transactions (category = move).\n"
             "    \"category\":\"send|receive|move\", (string) The transaction category. 'move' is a local (off blockchain)\n"
             "                                                transaction between accounts, and not associated with an address,\n"
@@ -1587,7 +1589,7 @@ UniValue listsinceblock(const UniValue& params, bool fHelp)
             "{\n"
             "  \"transactions\": [\n"
             "    \"account\":\"accountname\",       (string) DEPRECATED. The account name associated with the transaction. Will be \"\" for the default account.\n"
-            "    \"address\":\"granadeiroaddress\",    (string) The granadeiro address of the transaction. Not present for move transactions (category = move).\n"
+            "    \"address\":\"usdiaddress\",    (string) The usdi address of the transaction. Not present for move transactions (category = move).\n"
             "    \"category\":\"send|receive\",     (string) The transaction category. 'send' has negative amounts, 'receive' has positive amounts.\n"
             "    \"amount\": x.xxx,          (numeric) The amount in " + CURRENCY_UNIT + ". This is negative for the 'send' category, and for the 'move' category for moves \n"
             "                                          outbound. It is positive for the 'receive' category, and for the 'move' category for inbound funds.\n"
@@ -1687,7 +1689,7 @@ UniValue gettransaction(const UniValue& params, bool fHelp)
             "  \"details\" : [\n"
             "    {\n"
             "      \"account\" : \"accountname\",  (string) DEPRECATED. The account name involved in the transaction, can be \"\" for the default account.\n"
-            "      \"address\" : \"granadeiroaddress\",   (string) The granadeiro address involved in the transaction\n"
+            "      \"address\" : \"usdiaddress\",   (string) The usdi address involved in the transaction\n"
             "      \"category\" : \"send|receive\",    (string) The category, either 'send' or 'receive'\n"
             "      \"amount\" : x.xxx,                 (numeric) The amount in " + CURRENCY_UNIT + "\n"
             "      \"label\" : \"label\",              (string) A comment for the address/transaction, if any\n"
@@ -1854,7 +1856,7 @@ UniValue walletpassphrase(const UniValue& params, bool fHelp)
         throw runtime_error(
             "walletpassphrase \"passphrase\" timeout ( stakingonly )\n"
             "\nStores the wallet decryption key in memory for 'timeout' seconds.\n"
-            "This is needed prior to performing transactions related to private keys such as sending granadeiros\n"
+            "This is needed prior to performing transactions related to private keys such as sending usdi\n"
             "\nArguments:\n"
             "1. \"passphrase\"     (string, required) The wallet passphrase\n"
             "2. timeout            (numeric, required) The time to keep the decryption key in seconds.\n"
@@ -2016,10 +2018,10 @@ UniValue encryptwallet(const UniValue& params, bool fHelp)
             "\nExamples:\n"
             "\nEncrypt you wallet\n"
             + HelpExampleCli("encryptwallet", "\"my pass phrase\"") +
-            "\nNow set the passphrase to use the wallet, such as for signing or sending granadeiro\n"
+            "\nNow set the passphrase to use the wallet, such as for signing or sending usdi\n"
             + HelpExampleCli("walletpassphrase", "\"my pass phrase\"") +
             "\nNow we can so something like sign\n"
-            + HelpExampleCli("signmessage", "\"granadeiroaddress\" \"test message\"") +
+            + HelpExampleCli("signmessage", "\"usdiaddress\" \"test message\"") +
             "\nNow lock the wallet again by removing the passphrase\n"
             + HelpExampleCli("walletlock", "") +
             "\nAs a json rpc call\n"
@@ -2051,7 +2053,7 @@ UniValue encryptwallet(const UniValue& params, bool fHelp)
     // slack space in .dat files; that is bad if the old data is
     // unencrypted private keys. So:
     StartShutdown();
-    return "wallet encrypted; Granadeiro server stopping, restart to run with encrypted wallet. The keypool has been flushed and a new HD seed was generated (if you are using HD). You need to make a new backup.";
+    return "wallet encrypted; USDI server stopping, restart to run with encrypted wallet. The keypool has been flushed and a new HD seed was generated (if you are using HD). You need to make a new backup.";
 }
 
 UniValue reservebalance(const UniValue& params, bool fHelp)
@@ -2102,7 +2104,7 @@ UniValue lockunspent(const UniValue& params, bool fHelp)
             "\nUpdates list of temporarily unspendable outputs.\n"
             "Temporarily lock (unlock=false) or unlock (unlock=true) specified transaction outputs.\n"
             "If no transaction outputs are specified when unlocking then all current locked transaction outputs are unlocked.\n"
-            "A locked transaction output will not be chosen by automatic coin selection, when spending granadeiros.\n"
+            "A locked transaction output will not be chosen by automatic coin selection, when spending usdi.\n"
             "Locks are stored in memory only. Nodes start with zero locked outputs, and the locked output list\n"
             "is always cleared (by virtue of process exit) when a node stops or fails.\n"
             "Also see the listunspent call\n"
@@ -2345,9 +2347,9 @@ UniValue listunspent(const UniValue& params, bool fHelp)
             "\nArguments:\n"
             "1. minconf          (numeric, optional, default=1) The minimum confirmations to filter\n"
             "2. maxconf          (numeric, optional, default=9999999) The maximum confirmations to filter\n"
-            "3. \"addresses\"    (string) A json array of granadeiro addresses to filter\n"
+            "3. \"addresses\"    (string) A json array of usdi addresses to filter\n"
             "    [\n"
-            "      \"address\"   (string) granadeiro address\n"
+            "      \"address\"   (string) usdi address\n"
             "      ,...\n"
             "    ]\n"
             "\nResult\n"
@@ -2355,7 +2357,7 @@ UniValue listunspent(const UniValue& params, bool fHelp)
             "  {\n"
             "    \"txid\" : \"txid\",          (string) the transaction id \n"
             "    \"vout\" : n,               (numeric) the vout value\n"
-            "    \"address\" : \"address\",    (string) the granadeiro address\n"
+            "    \"address\" : \"address\",    (string) the usdi address\n"
             "    \"account\" : \"account\",    (string) DEPRECATED. The associated account, or \"\" for the default account\n"
             "    \"scriptPubKey\" : \"key\",   (string) the script key\n"
             "    \"amount\" : x.xxx,         (numeric) the transaction amount in " + CURRENCY_UNIT + "\n"
@@ -2390,7 +2392,7 @@ UniValue listunspent(const UniValue& params, bool fHelp)
             const UniValue& input = inputs[idx];
             CTxDestination address =  DecodeDestination(input.get_str());
             if (!IsValidDestination(address))
-                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Granadeiro address: ")+input.get_str());
+                throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid USDI address: ")+input.get_str());
             if (destinations.count(address))
                 throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+input.get_str());
             destinations.insert(address);
@@ -2463,7 +2465,7 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
                             "1. \"hexstring\"           (string, required) The hex string of the raw transaction\n"
                             "2. options               (object, optional)\n"
                             "   {\n"
-                            "     \"changeAddress\"     (string, optional, default pool address) The granadeiro address to receive the change\n"
+                            "     \"changeAddress\"     (string, optional, default pool address) The usdi address to receive the change\n"
                             "     \"changePosition\"    (numeric, optional, default random) The index of the change output\n"
                             "     \"includeWatching\"   (boolean, optional, default false) Also select inputs which are watch only\n"
                             "     \"lockUnspents\"      (boolean, optional, default false) Lock selected unspent outputs\n"
@@ -2523,7 +2525,7 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
                     DecodeDestination(options["changeAddress"].get_str());
 
             if (!IsValidDestination(dest)) {
-                throw JSONRPCError(RPC_INVALID_PARAMETER, "changeAddress must be a valid granadeiro address");
+                throw JSONRPCError(RPC_INVALID_PARAMETER, "changeAddress must be a valid usdi address");
 
             changeAddress = dest;
         }
@@ -2601,6 +2603,252 @@ UniValue burn(const UniValue& params, bool fHelp)
     SendMoneyToScript(scriptPubKey, nAmount, false, wtx);
 
     return wtx.GetHash().GetHex();
+}
+
+// ///////////////////////////////////////////////////////////////////// ** em52
+//  new rpc added by Remy5
+
+struct StakePeriodRange_T {
+    int64_t Start;
+    int64_t End;
+    int64_t Total;
+    int Count;
+    std::string Name;
+};
+
+typedef std::vector<StakePeriodRange_T> vStakePeriodRange_T;
+
+// Check if we have a Tx that can be counted in staking report
+bool IsTxCountedAsStaked(const CWalletTx* tx)
+{
+    // Make sure we have a lock
+    LOCK(cs_main);
+
+    // orphan block or immature
+    if ((!tx->GetDepthInMainChain()) || (tx->GetBlocksToMaturity() > 0) || !tx->IsInMainChain())
+        return false;
+
+    // abandoned transactions
+    if (tx->isAbandoned())
+        return false;
+
+    // transaction other than POS block
+    return tx->IsCoinStake();
+}
+
+// Get the amount for a staked tx used in staking report
+CAmount GetTxStakeAmount(const CWalletTx* tx)
+{
+    // use the cached amount if available
+    if (tx->fCreditCached  && tx->fDebitCached )
+        return tx->nCreditCached - tx->nDebitCached;
+    // Check for cold staking
+   // else if (tx->vout[1].scriptPubKey.IsColdStaking() || tx->vout[1].scriptPubKey.IsColdStakingv2())
+        //return tx->GetCredit(pwalletMain->IsMine(tx->vout[1])) - tx->GetDebit(pwalletMain->IsMine(tx->vout[1]));
+
+    return tx->GetCredit(ISMINE_SPENDABLE) - tx->GetDebit(ISMINE_SPENDABLE) ;
+}
+
+// Gets timestamp for first stake
+// Returns -1 (Zero) if has not staked yet
+int64_t GetFirstStakeTime()
+{
+    // Check if we already know when
+    if (nWalletFirstStakeTime > 0)
+        return nWalletFirstStakeTime;
+
+    // Need a pointer for the tx
+    const CWalletTx* tx;
+
+    // scan the entire wallet transactions
+    for (auto& it : pwalletMain->wtxOrdered) {
+        tx = it.second.first;
+
+        // Check if we have a useable tx
+        if (IsTxCountedAsStaked(tx)) {
+            nWalletFirstStakeTime = tx->GetTxTime(); // Save it for later use
+            return nWalletFirstStakeTime;
+        }
+    }
+
+    // Did not find the first stake
+    return nWalletFirstStakeTime;
+}
+
+// **em52: Get total coins staked on given period
+// inspired from CWallet::GetStake()
+// Parameter aRange = Vector with given limit date, and result
+// return int =  Number of Wallet's elements analyzed
+int GetsStakeSubTotal(vStakePeriodRange_T& aRange)
+{
+    // Lock cs_main before we try to call GetTxStakeAmount
+    LOCK(cs_main);
+
+    int nElement = 0;
+    int64_t nAmount = 0;
+
+    const CWalletTx* pcoin;
+
+    vStakePeriodRange_T::iterator vIt;
+
+    // scan the entire wallet transactions
+    for (map<uint256, CWalletTx>::const_iterator it = pwalletMain->mapWallet.begin();
+         it != pwalletMain->mapWallet.end();
+         ++it) {
+        pcoin = &(*it).second;
+
+        // Check if we have a useable tx
+        if (!IsTxCountedAsStaked(pcoin))
+            continue;
+
+        nElement++;
+
+        // Get the stake tx amount from pcoin
+        nAmount = GetTxStakeAmount(pcoin);
+
+        // scan the range
+        for (vIt = aRange.begin(); vIt != aRange.end(); vIt++) {
+            if (pcoin->GetTxTime() >= vIt->Start) {
+                if (!vIt->End) { // Manage Special case
+                    vIt->Start = pcoin->GetTxTime();
+                    vIt->Total = nAmount;
+                } else if (pcoin->GetTxTime() <= vIt->End) {
+                    vIt->Count++;
+                    vIt->Total += nAmount;
+                }
+            }
+        }
+    }
+
+    return nElement;
+}
+
+// prepare range for stake report
+vStakePeriodRange_T PrepareRangeForStakeReport()
+{
+    vStakePeriodRange_T aRange;
+    StakePeriodRange_T x;
+
+
+    int64_t n1Hour = 60 * 60;
+    int64_t n1Day = 24 * n1Hour;
+
+    int64_t nToday = GetTime();
+    time_t CurTime = nToday;
+    auto localTime = boost::posix_time::second_clock::local_time();
+    struct tm Loc_MidNight = boost::posix_time::to_tm(localTime);
+
+    Loc_MidNight.tm_hour = 0;
+    Loc_MidNight.tm_min = 0;
+    Loc_MidNight.tm_sec = 0; // set midnight
+
+    x.Start = mktime(&Loc_MidNight);
+    x.End = nToday;
+    x.Count = 0;
+    x.Total = 0;
+
+    // prepare last single 30 day Range
+    for (int i = 0; i < 30; i++) {
+        x.Name = DateTimeStrFormat("%Y-%m-%d %H:%M:%S", x.Start);
+
+        aRange.push_back(x);
+
+        x.End = x.Start - 1;
+        x.Start -= n1Day;
+    }
+
+    // prepare subtotal range of last 24H, 1 week, 30 days, 1 years
+    int GroupDays[5][2] = {{1, 0}, {7, 0}, {30, 0}, {365, 0}, {99999999, 0}};
+    std::string sGroupName[] = {"24H", "7 Days", "30 Days", "365 Days", "All"};
+
+    nToday = GetTime();
+
+    for (int i = 0; i < 5; i++) {
+        x.Start = nToday - GroupDays[i][0] * n1Day;
+        x.End = nToday - GroupDays[i][1] * n1Day;
+        x.Name = "Last " + sGroupName[i];
+
+        aRange.push_back(x);
+    }
+
+    // Special case. not a subtotal, but last stake
+    x.End = 0;
+    x.Start = 0;
+    x.Name = "Latest Stake";
+    aRange.push_back(x);
+
+    return aRange;
+}
+
+
+// getstakereport: return SubTotal of the staked coin in last 24H, 7 days, etc.. of all owns address
+UniValue getstakereport(const UniValue& params, bool fHelp)
+{
+    if ((params.size() > 0) || (fHelp))
+        throw runtime_error(
+            "getstakereport\n"
+            "List last single 30 day stake subtotal and last 24h, 7, 30, 365 day subtotal.\n");
+
+    vStakePeriodRange_T aRange = PrepareRangeForStakeReport();
+
+    LOCK(cs_main);
+
+    // get subtotal calc
+    int64_t nTook = GetTimeMillis();
+    int nItemCounted = GetsStakeSubTotal(aRange);
+
+    UniValue result(UniValue::VOBJ);
+
+    vStakePeriodRange_T::iterator vIt;
+
+    // Span of days to compute average over
+    int nDays = 0;
+
+    // Get the wallet's staking age in days
+    int nWalletDays = 0;
+
+    // Check if we have a stake already
+    if (GetFirstStakeTime() != -1)
+        nWalletDays = (GetTime() - GetFirstStakeTime()) / 86400;
+
+    // report it
+    for (vIt = aRange.begin(); vIt != aRange.end(); vIt++) {
+        // Add it to results
+        result.pushKV(vIt->Name, FormatMoney(vIt->Total).c_str());
+
+        // Get the nDays value
+        nDays = 0;
+        if (vIt->Name == "Last 7 Days")
+            nDays = 7;
+        else if (vIt->Name == "Last 30 Days")
+            nDays = 30;
+        else if (vIt->Name == "Last 365 Days")
+            nDays = 365;
+
+        // Check if we need to add the average
+        if (nDays > 0) {
+            // Check if nDays is larger than the wallet's staking age in days
+            if (nDays > nWalletDays && nWalletDays > 0)
+                nDays = nWalletDays;
+
+            // Add the Average
+            result.pushKV(vIt->Name + " Avg", FormatMoney(vIt->Total / nDays).c_str());
+        }
+    }
+
+    vIt--;
+    result.pushKV("Latest Time",
+        vIt->Start ? DateTimeStrFormat("%Y-%m-%d %H:%M:%S", vIt->Start).c_str() :
+                     "Never");
+
+    // Moved nTook call down here to be more accurate
+    nTook = GetTimeMillis() - nTook;
+
+    // report element counted / time took
+    result.pushKV("Stake counted", nItemCounted);
+    result.pushKV("time took (ms)", nTook);
+
+    return result;
 }
 
 /*
@@ -2695,6 +2943,7 @@ static const CRPCCommand commands[] =
     { "wallet",             "getrawchangeaddress",      &getrawchangeaddress,      true  },
     { "wallet",             "getreceivedbyaccount",     &getreceivedbyaccount,     false },
     { "wallet",             "getreceivedbyaddress",     &getreceivedbyaddress,     false },
+    { "wallet",             "getstakereport",           &getstakereport,           false },
     { "wallet",             "gettransaction",           &gettransaction,           false },
     { "wallet",             "getunconfirmedbalance",    &getunconfirmedbalance,    false },
     { "wallet",             "getwalletinfo",            &getwalletinfo,            false },
