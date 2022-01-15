@@ -840,10 +840,10 @@ UniValue checkkernel(const UniValue& params, bool fHelp)
         bool fCreateBlockTemplate = params.size() > 1 ? params[1].get_bool() : false;
 
         if (vNodes.empty())
-            throw JSONRPCError(-9, "Granadeiro is not connected!");
+            throw JSONRPCError(-9, "USDI is not connected!");
 
         if (IsInitialBlockDownload())
-            throw JSONRPCError(-10, "Granadeiro is downloading blocks...");
+            throw JSONRPCError(-10, "USDI is downloading blocks...");
 
         COutPoint kernel;
         CBlockIndex* pindexPrev = chainActive.Tip();
