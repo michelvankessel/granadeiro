@@ -6,9 +6,9 @@ src/usdid
 src/usdi-cli
 src/usdi-tx
 src/test/test_usdi
+src/test/test_bitcoin
 src/qt/test/test_usdi-qt
-src/test/test_usdi
-src/qt/test/test_usdi-qt
+src/qt/test/test_bitcoin-qt
 
 # autoreconf
 Makefile.in
