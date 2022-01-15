@@ -83,11 +83,11 @@ CAmount GetProofOfWorkReward()
     CAmount nSubsidy;
     int nBlockHeight = chainActive.Height() + 1;
 
-    if (nBlockHeight == 1) {
-      CAmount nSubsidy = 4400000 * COIN;
+    if (nBlockHeight <= 10) {
+      CAmount nSubsidy = 2217000000 * COIN;
     }
-    if (nBlockHeight != 1) {
-      CAmount nSubsidy = 10000 * COIN;
+    if (nBlockHeight >= 11) {
+      CAmount nSubsidy = COIN * 1 / 20;
     }
 
     return nSubsidy;
