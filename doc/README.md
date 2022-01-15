@@ -1,43 +1,39 @@
-Granadeiro
+USDI
 =============
 
 Setup
 ---------------------
-Granadeiro is experimental Granadeiro client and it builds the backbone of the network. However, it downloads and stores the entire history of Granadeiro transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+USDI is experimental USDI client and it builds the backbone of the network. However, it downloads and stores the entire history of USDI transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
-To download Granadeiro, visit [granadeiromore.org](https://granadeiromore.org).
+To download USDI, visit [usdicoin.com](https://usdicoin.com).
 
 Running
 ---------------------
-The following are some helpful notes on how to run Granadeiro on your native platform.
+The following are some helpful notes on how to run USDI on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/granadeiro-qt` (GUI) or
-- `bin/granadeirod` (headless)
+- `bin/usdi-qt` (GUI) or
+- `bin/usdid` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run granadeiro-qt.exe.
+Unpack the files into a directory, and then run usdi-qt.exe.
 
 ### OS X
 
-Drag Granadeiro-More to your applications folder, and then run Granadeiro-More.
+Drag USDI to your applications folder, and then run USDI
 
 ### Need Help?
 
 * See the documentation at the [Bitcoin Wiki](https://en.bitcoin.it/wiki/Main_Page)
 for help and more information.
-* Ask for help on [#granadeiro](http://webchat.freenode.net?channels=granadeiro) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=granadeiro).
-* Ask for help in [Granadeiro room](https://gitter.im/Granadeiro_Hub) on Gitter.
-* Ask for help in [/r/granadeiro/](https://nm.reddit.com/r/granadeiro/) on Reddit.
-* Ask for help on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Granadeiro topic](https://bitcointalk.org/index.php?topic=3017838.new#new).
 
 Building
 ---------------------
-The following are developer notes on how to build Granadeiro on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build USDI on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -47,7 +43,7 @@ The following are developer notes on how to build Granadeiro on your native plat
 
 Development
 ---------------------
-The Granadeiro repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The USDI repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -64,9 +60,7 @@ The Granadeiro repo's [root README](/README.md) contains relevant information on
 - [Benchmarking](benchmarking.md)
 
 ### Resources
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Granadeiro topic](https://bitcointalk.org/index.php?topic=3017838.new#new).
-* Discuss Granadeiro development in [Granadeiro room](https://gitter.im/Granadeiro_Hub) on Gitter.
-* Discuss Granadeiro development in [Granadeiro team](https://keybase.io/team/granadeiro) on Keybase.
+
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

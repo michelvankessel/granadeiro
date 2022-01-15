@@ -1,5 +1,5 @@
-Building Granadeiro
+Building USDI
 ================
 
 See doc/build-*.md for instructions on building the various
-elements of the Granadeiro reference implementation of Granadeiro.
+elements of the USDI reference implementation of USDI.

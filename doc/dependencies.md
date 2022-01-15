@@ -1,7 +1,7 @@
 Dependencies
 ============
 
-These are the dependencies currently used by Granadeiro. You can find instructions for installing them in the `build-*.md` file for your platform.
+These are the dependencies currently used by USDI. You can find instructions for installing them in the `build-*.md` file for your platform.
 
 | Dependency | Version used | Minimum required | CVEs | Shared | [Bundled Qt library](https://doc.qt.io/qt-5/configure-options.html#third-party-libraries) |
 | --- | --- | --- | --- | --- | --- |
@@ -31,7 +31,4 @@ These are the dependencies currently used by Granadeiro. You can find instructio
 
 Human help is also available from the following channels:
 
-Discord  - https://discord.gg/hjNUgWD
-Telegram - https://t.me/granadeironl
-Keybase  - https://keybase.io/team/granadeiro/
-
+TO BE UPDATED!!!

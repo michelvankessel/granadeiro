@@ -24,17 +24,17 @@ In case you want to build the disk image with `make deploy` (.dmg / optional), y
 
 NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
-Build Granadeiro
+Build USDI
 ------------------------
 
-1. Clone the granadeiro source code and cd into `granadeiro`
+1. Clone the usdi source code and cd into `usdi`
 
-        git clone https://gitlab.com/granadeiro/granadeiro/
-        cd granadeiro
+        git clone https://gitlab.com/usdi/usdi/
+        cd usdi
 
-2.  Build granadeiro:
+2.  Build usdi:
 
-    Configure and build the headless granadeiro binaries as well as the GUI (if Qt is found).
+    Configure and build the headless usdi binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -53,37 +53,37 @@ Build Granadeiro
 Running
 -------
 
-Granadeiro is now available at `./src/granadeirod`
+USDI is now available at `./src/usdid`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=granadeirorpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Granadeiro/granadeiro.conf"
+    echo -e "rpcuser=usdirpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/USDI/usdi.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/Granadeiro/granadeiro.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/USDI/usdi.conf"
 
-The first time you run granadeirod, it will start downloading the blockchain. This process could take several hours.
+The first time you run usdid, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/Granadeiro/debug.log
+    tail -f $HOME/Library/Application\ Support/USDI/debug.log
 
 Other commands:
 -------
 
-    ./src/granadeirod -daemon # Starts the granadeiro daemon.
-    ./src/granadeiro-cli --help # Outputs a list of command-line options.
-    ./src/granadeiro-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/usdid -daemon # Starts the usdi daemon.
+    ./src/usdi-cli --help # Outputs a list of command-line options.
+    ./src/usdi-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for granadeiro development.
+You can use Qt Creator as an IDE, for usdi development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "granadeiro-qt" as project name, enter src/qt as location
+4. Enter "usdi-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."

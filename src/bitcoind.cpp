@@ -129,7 +129,7 @@ bool AppInit(int argc, char* argv[])
 
         if (fCommandLine)
         {
-            fprintf(stderr, "Error: There is no RPC client functionality in usdid anymore. Use the usdid-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in usdid anymore. Use the usdi-cli utility instead.\n");
             exit(EXIT_FAILURE);
         }
 #ifndef WIN32
