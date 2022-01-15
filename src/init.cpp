@@ -489,8 +489,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/granadeirograna>";
-    const std::string URL_WEBSITE = "<https://granadeirograna.tech/>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/>";
+    const std::string URL_WEBSITE = "<https://usdicoin.com/>";
     // todo: remove urls from translations on next change
 
     // return FormatParagraph(strprintf(_("Copyright (C) %i-%i %s"), 2009, COPYRIGHT_YEAR, CopyrightHolders())) + "\n" +
@@ -500,9 +500,9 @@ std::string LicenseInfo()
            "\n" +
            FormatParagraph(strprintf("Copyright (C) %i-%i The Blackcoin More Developers", 2018, COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           FormatParagraph(strprintf("Copyright (C) %i The Granadeiro Developers", 2021)) + "\n" +
+           FormatParagraph(strprintf("Copyright (C) %i The USDI Developers", 2022)) + "\n" +
            "\n" +
-           FormatParagraph(strprintf(_("Please contribute if you find Granadeiro useful. "
+           FormatParagraph(strprintf(_("Please contribute if you find USDI useful. "
                        "Visit %s for further information about the software."),
                URL_WEBSITE)) +
            "\n" +

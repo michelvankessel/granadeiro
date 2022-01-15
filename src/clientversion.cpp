@@ -13,7 +13,7 @@
  * for both bitcoind and bitcoin-core, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Granadeiro");
+const std::string CLIENT_NAME("USDI");
 
 /**
  * Client version number
