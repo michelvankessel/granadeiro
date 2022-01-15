@@ -54,7 +54,7 @@ private:
 };
 
 /**
- * Model for list of recently generated payment requests / granadeiro: URIs.
+ * Model for list of recently generated payment requests / usdi: URIs.
  * Part of wallet model.
  */
 class RecentRequestsTableModel: public QAbstractTableModel

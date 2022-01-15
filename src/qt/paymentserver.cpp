@@ -48,14 +48,14 @@
 #endif
 
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString BITCOIN_IPC_PREFIX("granadeiro:");
+const QString BITCOIN_IPC_PREFIX("usdi:");
 // BIP70 payment protocol messages
 const char* BIP70_MESSAGE_PAYMENTACK = "PaymentACK";
 const char* BIP70_MESSAGE_PAYMENTREQUEST = "PaymentRequest";
 // BIP71 payment protocol media types
-const char* BIP71_MIMETYPE_PAYMENT = "application/granadeiro-payment";
-const char* BIP71_MIMETYPE_PAYMENTACK = "application/granadeiro-paymentack";
-const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/granadeiro-paymentrequest";
+const char* BIP71_MIMETYPE_PAYMENT = "application/usdi-payment";
+const char* BIP71_MIMETYPE_PAYMENTACK = "application/usdi-paymentack";
+const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/usdi-paymentrequest";
 // BIP70 max payment request size in bytes (DoS protection)
 const qint64 BIP70_MAX_PAYMENTREQUEST_SIZE = 50000;
 
@@ -360,7 +360,7 @@ PaymentServer::PaymentServer(QObject* parent, bool startLocalServer) :
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
     // Install global event filter to catch QFileOpenEvents
-    // on Mac: sent when you click granadeiro: links
+    // on Mac: sent when you click usdi: links
     // other OSes: helpful when dealing with payment request files
     if (parent)
         parent->installEventFilter(this);
@@ -393,7 +393,7 @@ PaymentServer::~PaymentServer()
 }
 
 //
-// OSX-specific way of handling granadeiro: URIs and PaymentRequest mime types.
+// OSX-specific way of handling usdi: URIs and PaymentRequest mime types.
 // Also used by paymentservertests.cpp and when opening a payment request file
 // via "Open URI..." menu entry.
 //
@@ -419,7 +419,7 @@ void PaymentServer::initNetManager()
     if (netManager != NULL)
         delete netManager;
 
-    // netManager is used to fetch paymentrequests given in granadeiro: URIs
+    // netManager is used to fetch paymentrequests given in usdi: URIs
     netManager = new QNetworkAccessManager(this);
 
     QNetworkProxy proxy;
@@ -517,14 +517,14 @@ void PaymentServer::handleURIOrFile(const QString &s)
         return;
     }
 
-    // granadeiro: CashAddr URI
+    // usdi: CashAddr URI
     QString schemeCash = GUIUtil::bitcoinURIScheme(Params(), true);
     if (handleURI(schemeCash, s))
     {
         return;
     }
 
-    // granadeiro: Legacy URI
+    // usdi: Legacy URI
     QString schemeLegacy = GUIUtil::bitcoinURIScheme(Params(), false);
     if (handleURI(schemeLegacy, s))
     {

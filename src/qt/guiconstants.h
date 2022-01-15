@@ -48,9 +48,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "Granadeiro"
-#define QAPP_ORG_DOMAIN "granadeiromore.org"
-#define QAPP_APP_NAME_DEFAULT "Granadeiro-Qt"
-#define QAPP_APP_NAME_TESTNET "Granadeiro-Qt-testnet"
+#define QAPP_ORG_NAME "USDI"
+#define QAPP_ORG_DOMAIN "USDIcoin.com"
+#define QAPP_APP_NAME_DEFAULT "USDI-Qt"
+#define QAPP_APP_NAME_TESTNET "USDI-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H
