@@ -63,11 +63,11 @@
     </message>
     <message>
         <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Detta är dina Granadeiro adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Granadeiros.</translation>
+        <translation>Detta är dina USDI adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Granadeiros.</translation>
     </message>
     <message>
         <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Detta är dina Granadeiro adresser för att ta emot betalningar. Det rekommenderas att använda en ny mottagningsadress för varje transaktion.</translation>
+        <translation>Detta är dina USDI adresser för att ta emot betalningar. Det rekommenderas att använda en ny mottagningsadress för varje transaktion.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -340,7 +340,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Send coins to a Bitcoin address</source>
-        <translation>Skicka granadeiros till en Granadeiro-adress</translation>
+        <translation>Skicka granadeiros till en USDI-adress</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -364,7 +364,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Bitcoin</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -392,11 +392,11 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Signera meddelanden med din Granadeiro-adress för att bevisa att du äger dem</translation>
+        <translation>Signera meddelanden med din USDI-adress för att bevisa att du äger dem</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Verifiera meddelanden för att vara säker på att de var signerade med specificerade Granadeiro-adresser</translation>
+        <translation>Verifiera meddelanden för att vara säker på att de var signerade med specificerade USDI-adresser</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -416,7 +416,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Begär betalning (genererar QR-koder och granadeiro-URI)</translation>
+        <translation>Begär betalning (genererar QR-koder och usdi-URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -428,7 +428,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Open a bitcoin: URI or payment request</source>
-        <translation>Öppna en granadeiro: URI eller betalningsbegäran</translation>
+        <translation>Öppna en usdi: URI eller betalningsbegäran</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -436,7 +436,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Bitcoin network</source>
-        <translation><numerusform>%n aktiva anslutningar till Granadeiro-nätverket.</numerusform><numerusform>%n aktiva anslutningar till Granadeiro-nätverket.</numerusform></translation>
+        <translation><numerusform>%n aktiva anslutningar till USDI-nätverket.</numerusform><numerusform>%n aktiva anslutningar till USDI-nätverket.</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -480,7 +480,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Visa %1 hjälpmeddelande för att få en lista med möjliga Granadeiro kommandoradsalternativ.</translation>
+        <translation>Visa %1 hjälpmeddelande för att få en lista med möjliga USDI kommandoradsalternativ.</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -542,7 +542,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
-        <translation>Ett kritiskt fel uppstod. Granadeiro kan inte fortsätta att köra säkert och kommer att avslutas.</translation>
+        <translation>Ett kritiskt fel uppstod. USDI kan inte fortsätta att köra säkert och kommer att avslutas.</translation>
     </message>
 </context>
 <context>
@@ -765,7 +765,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>%1 will download and store a copy of the Bitcoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>%1 kommer att ladda ner och spara en kopia av Granadeiro blockkedjan. Åtminstone %2GB av data kommer att sparas i denna katalog, och den kommer att växa över tiden. Plånboken kommer också att sparas i denna katalog.</translation>
+        <translation>%1 kommer att ladda ner och spara en kopia av USDI blockkedjan. Åtminstone %2GB av data kommer att sparas i denna katalog, och den kommer att växa över tiden. Plånboken kommer också att sparas i denna katalog.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -942,7 +942,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Öppna automatiskt Granadeiro-klientens port på routern. Detta fungerar endast om din router har UPnP aktiverat.</translation>
+        <translation>Öppna automatiskt USDI-klientens port på routern. Detta fungerar endast om din router har UPnP aktiverat.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -950,7 +950,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Connect to the Bitcoin network through a SOCKS5 proxy.</source>
-        <translation>Anslut till Granadeiro-nätverket genom en SOCKS5-proxy.</translation>
+        <translation>Anslut till USDI-nätverket genom en SOCKS5-proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -990,7 +990,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Connect to the Bitcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Anslut till Granadeiro-nätverket genom en separat SOCKS5-proxy för dolda tjänster i Tor.</translation>
+        <translation>Anslut till USDI-nätverket genom en separat SOCKS5-proxy för dolda tjänster i Tor.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -1089,7 +1089,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Den visade informationen kan vara inaktuell. Plånboken synkroniseras automatiskt med Granadeiro-nätverket efter att anslutningen är upprättad, men denna process har inte slutförts ännu.</translation>
+        <translation>Den visade informationen kan vara inaktuell. Plånboken synkroniseras automatiskt med USDI-nätverket efter att anslutningen är upprättad, men denna process har inte slutförts ännu.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1194,7 +1194,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Enter a Bitcoin address (e.g. %1)</source>
-        <translation>Ange en Granadeiro-adress (t.ex. %1)</translation>
+        <translation>Ange en USDI-adress (t.ex. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1775,7 +1775,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
-        <translation>Att betala endast den minsta avgiften är bara bra så länge det är mindre transaktionsvolym än utrymme i blocken. Men tänk på att det kan hamna i en aldrig bekräftar transaktion när det finns mer efterfrågan på granadeiro transaktioner än nätverket kan bearbeta.</translation>
+        <translation>Att betala endast den minsta avgiften är bara bra så länge det är mindre transaktionsvolym än utrymme i blocken. Men tänk på att det kan hamna i en aldrig bekräftar transaktion när det finns mer efterfrågan på usdi transaktioner än nätverket kan bearbeta.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -1922,7 +1922,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>Ett meddelande som bifogades granadeiro-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Granadeironätverket.</translation>
+        <translation>Ett meddelande som bifogades usdi-URI, vilket lagras med transaktionen som referens. NB: Meddelandet kommer inte att sändas över Granadeironätverket.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2027,7 +2027,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
-        <translation>Verifiera meddelandet för att vara säker på att den var signerad med den angivna Granadeiro-adressen</translation>
+        <translation>Verifiera meddelandet för att vara säker på att den var signerad med den angivna USDI-adressen</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2228,7 +2228,7 @@ Var vänlig och försök igen.</translation>
     </message>
     <message>
         <source>Bitcoin Core</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>The %s developers</source>

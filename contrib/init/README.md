@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-systemd: blackmored.service
-Upstart: blackmored.conf
-OpenRC:  blackmored.openrc
-         blackmored.openrcconf
-CentOS:  blackmored.init
-macOS:   org.blackcoin.blackmored.plist
+systemd: usdid.service
+Upstart: usdid.conf
+OpenRC:  usdid.openrc
+         usdid.openrcconf
+CentOS:  usdid.init
+macOS:   com.usdi.usdid.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

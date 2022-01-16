@@ -63,11 +63,11 @@
     </message>
     <message>
         <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Need on sinu Granadeiro aadressid maksete saatmiseks. Ennem müntide saatmist kontrolli alati summat ja makse saaja aadressi.</translation>
+        <translation>Need on sinu USDI aadressid maksete saatmiseks. Ennem müntide saatmist kontrolli alati summat ja makse saaja aadressi.</translation>
     </message>
     <message>
         <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Need on sinu Granadeiro aadressid sisenevate maksete vastu võtmiseks. Soovitav on iga tehingu tarbeks kasutada uut aadressi.</translation>
+        <translation>Need on sinu USDI aadressid sisenevate maksete vastu võtmiseks. Soovitav on iga tehingu tarbeks kasutada uut aadressi.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -315,7 +315,7 @@
     </message>
     <message>
         <source>Bitcoin</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -627,7 +627,7 @@
     </message>
     <message>
         <source>The entered address "%1" is not a valid Bitcoin address.</source>
-        <translation>Sisestatud aadress "%1" ei ole korrektne Granadeiro aadress.</translation>
+        <translation>Sisestatud aadress "%1" ei ole korrektne USDI aadress.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1338,7 +1338,7 @@
     </message>
     <message>
         <source>Warning: Invalid Bitcoin address</source>
-        <translation>Hoiatus: Ebakorrektne Granadeiro aadress</translation>
+        <translation>Hoiatus: Ebakorrektne USDI aadress</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1418,7 +1418,7 @@
     </message>
     <message>
         <source>The Bitcoin address to sign the message with</source>
-        <translation>Granadeiro aadress millega sõnum allkirjastada</translation>
+        <translation>USDI aadress millega sõnum allkirjastada</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1470,7 +1470,7 @@
     </message>
     <message>
         <source>The Bitcoin address the message was signed with</source>
-        <translation>Granadeiro aadress millega sõnum on allkirjastatud</translation>
+        <translation>USDI aadress millega sõnum on allkirjastatud</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
@@ -1759,7 +1759,7 @@
     </message>
     <message>
         <source>Bitcoin Core</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

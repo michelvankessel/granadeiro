@@ -187,7 +187,7 @@
     </message>
     <message>
         <source>Send coins to a Bitcoin address</source>
-        <translation>Gửi coins đến tài khoản Granadeiro</translation>
+        <translation>Gửi coins đến tài khoản USDI</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -207,7 +207,7 @@
     </message>
     <message>
         <source>Bitcoin</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -235,11 +235,11 @@
     </message>
     <message>
         <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Dùng địa chỉ Granadeiro của bạn ký các tin nhắn để xác minh những nội dung tin nhắn đó là của bạn.</translation>
+        <translation>Dùng địa chỉ USDI của bạn ký các tin nhắn để xác minh những nội dung tin nhắn đó là của bạn.</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Kiểm tra các tin nhắn để chắc chắn rằng chúng được ký bằng các địa chỉ Granadeiro xác định.</translation>
+        <translation>Kiểm tra các tin nhắn để chắc chắn rằng chúng được ký bằng các địa chỉ USDI xác định.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -259,7 +259,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ granadeiro: URLs)</translation>
+        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ usdi: URLs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -271,7 +271,7 @@
     </message>
     <message>
         <source>Open a bitcoin: URI or payment request</source>
-        <translation>Mở granadeiro:URL hoặc yêu cầu thanh toán</translation>
+        <translation>Mở usdi:URL hoặc yêu cầu thanh toán</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -537,7 +537,7 @@
     </message>
     <message>
         <source>Connect to the Bitcoin network through a SOCKS5 proxy.</source>
-        <translation>Kết nối đến máy chủ Granadeiro thông qua SOCKS5 proxy.</translation>
+        <translation>Kết nối đến máy chủ USDI thông qua SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1019,7 +1019,7 @@
     </message>
     <message>
         <source>Bitcoin Core</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>(default: %u)</source>

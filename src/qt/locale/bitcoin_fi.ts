@@ -167,7 +167,7 @@
     </message>
     <message>
         <source>Send coins to a Bitcoin address</source>
-        <translation>Lähetä kolikoita Granadeiro-osoitteeseen</translation>
+        <translation>Lähetä kolikoita USDI-osoitteeseen</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
         <source>Bitcoin</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -211,7 +211,7 @@
     </message>
     <message>
         <source>Show or hide the main Window</source>
-        <translation>Näytä tai piilota Granadeiro-ikkuna</translation>
+        <translation>Näytä tai piilota USDI-ikkuna</translation>
     </message>
     <message>
         <source>Encrypt the private keys that belong to your wallet</source>
@@ -219,11 +219,11 @@
     </message>
     <message>
         <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>Allekirjoita viestisi omalla Granadeiro -osoitteellasi todistaaksesi, että omistat ne</translation>
+        <translation>Allekirjoita viestisi omalla USDI -osoitteellasi todistaaksesi, että omistat ne</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>Varmista, että viestisi on allekirjoitettu määritetyllä Granadeiro -osoitteella</translation>
+        <translation>Varmista, että viestisi on allekirjoitettu määritetyllä USDI -osoitteella</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -243,7 +243,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Pyydä maksuja (Luo QR koodit ja granadeiro: URIt)</translation>
+        <translation>Pyydä maksuja (Luo QR koodit ja usdi: URIt)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -255,7 +255,7 @@
     </message>
     <message>
         <source>Open a bitcoin: URI or payment request</source>
-        <translation>Avaa granadeiro: URI tai maksupyyntö</translation>
+        <translation>Avaa usdi: URI tai maksupyyntö</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -263,7 +263,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Bitcoin network</source>
-        <translation><numerusform>%n aktiivinen yhteys Granadeiro-verkkoon</numerusform><numerusform>%n aktiivista yhteyttä Granadeiro-verkkoon</numerusform></translation>
+        <translation><numerusform>%n aktiivinen yhteys USDI-verkkoon</numerusform><numerusform>%n aktiivista yhteyttä USDI-verkkoon</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -709,7 +709,7 @@
     </message>
     <message>
         <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Avaa Granadeiro-asiakasohjelman portti reitittimellä automaattisesti. Tämä toimii vain, jos reitittimesi tukee UPnP:tä ja se on käytössä.</translation>
+        <translation>Avaa USDI-asiakasohjelman portti reitittimellä automaattisesti. Tämä toimii vain, jos reitittimesi tukee UPnP:tä ja se on käytössä.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -717,7 +717,7 @@
     </message>
     <message>
         <source>Connect to the Bitcoin network through a SOCKS5 proxy.</source>
-        <translation>Yhdistä Granadeiro-verkkoon SOCKS5-välityspalvelimen kautta.</translation>
+        <translation>Yhdistä USDI-verkkoon SOCKS5-välityspalvelimen kautta.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -757,7 +757,7 @@
     </message>
     <message>
         <source>Connect to the Bitcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Yhdistä Granadeiro-verkkoon erillisen SOCKS5-välityspalvelimen kautta piilotettuja Tor-palveluja varten.</translation>
+        <translation>Yhdistä USDI-verkkoon erillisen SOCKS5-välityspalvelimen kautta piilotettuja Tor-palveluja varten.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -793,11 +793,11 @@
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
-        <translation>Yksikkö jona granadeiro-määrät näytetään</translation>
+        <translation>Yksikkö jona usdi-määrät näytetään</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Valitse mitä yksikköä käytetään ensisijaisesti granadeiro-määrien näyttämiseen.</translation>
+        <translation>Valitse mitä yksikköä käytetään ensisijaisesti usdi-määrien näyttämiseen.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -848,7 +848,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Näytetyt tiedot eivät välttämättä ole ajantasalla. Lompakkosi synkronoituu Granadeiro-verkon kanssa automaattisesti yhteyden muodostamisen jälkeen, mutta synkronointi on vielä meneillään.</translation>
+        <translation>Näytetyt tiedot eivät välttämättä ole ajantasalla. Lompakkosi synkronoituu USDI-verkon kanssa automaattisesti yhteyden muodostamisen jälkeen, mutta synkronointi on vielä meneillään.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -937,7 +937,7 @@
     </message>
     <message>
         <source>Enter a Bitcoin address (e.g. %1)</source>
-        <translation>Syötä Granadeiro-osoite (esim. %1)</translation>
+        <translation>Syötä USDI-osoite (esim. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1277,7 +1277,7 @@
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Bitcoin network.</source>
-        <translation>Valinnainen viesti liitetään maksupyyntöön ja näytetään avattaessa. Viestiä ei lähetetä Granadeiro-verkkoon.</translation>
+        <translation>Valinnainen viesti liitetään maksupyyntöön ja näytetään avattaessa. Viestiä ei lähetetä USDI-verkkoon.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1509,7 +1509,7 @@
     </message>
     <message>
         <source>The Bitcoin address to send the payment to</source>
-        <translation>Granadeiro-osoite johon maksu lähetetään</translation>
+        <translation>USDI-osoite johon maksu lähetetään</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1553,7 +1553,7 @@
     </message>
     <message>
         <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>Viesti joka liitettiin granadeiro: URI:iin tallennetaan rahansiirtoon viitteeksi. Tätä viestiä ei lähetetä Granadeiro-verkkoon.</translation>
+        <translation>Viesti joka liitettiin usdi: URI:iin tallennetaan rahansiirtoon viitteeksi. Tätä viestiä ei lähetetä USDI-verkkoon.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1590,7 +1590,7 @@
     </message>
     <message>
         <source>The Bitcoin address to sign the message with</source>
-        <translation>Granadeiro-osoite jolla viesti allekirjoitetaan</translation>
+        <translation>USDI-osoite jolla viesti allekirjoitetaan</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1622,7 +1622,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän Granadeiro-osoitteen</translation>
+        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän USDI-osoitteen</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1642,11 +1642,11 @@
     </message>
     <message>
         <source>The Bitcoin address the message was signed with</source>
-        <translation>Granadeiro-osoite jolla viesti on allekirjoitettu</translation>
+        <translation>USDI-osoite jolla viesti on allekirjoitettu</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
-        <translation>Tarkista viestin allekirjoitus varmistaaksesi, että se allekirjoitettiin tietyllä Granadeiro-osoitteella</translation>
+        <translation>Tarkista viestin allekirjoitus varmistaaksesi, että se allekirjoitettiin tietyllä USDI-osoitteella</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1779,7 +1779,7 @@
     </message>
     <message>
         <source>Bitcoin Core</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>The %s developers</source>

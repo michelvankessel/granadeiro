@@ -63,11 +63,11 @@
     </message>
     <message>
         <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dit zijn uw Granadeiro-adressen om betalingen mee te verzenden. Controleer altijd het bedrag en het ontvangstadres voordat u uw granadeiros verzendt.</translation>
+        <translation>Dit zijn uw USDI-adressen om betalingen mee te verzenden. Controleer altijd het bedrag en het ontvangstadres voordat u uw granadeiros verzendt.</translation>
     </message>
     <message>
         <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Dit zijn uw Granadeiro-adressen waarmee u betalingen kunt ontvangen. We raden u aan om een nieuw ontvangstadres voor elke transactie te gebruiken.</translation>
+        <translation>Dit zijn uw USDI-adressen waarmee u betalingen kunt ontvangen. We raden u aan om een nieuw ontvangstadres voor elke transactie te gebruiken.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -363,7 +363,7 @@
     </message>
     <message>
         <source>Bitcoin</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -415,7 +415,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and bitcoin: URIs)</source>
-        <translation>Vraag betaling aan (genereert QR-codes en granadeiro: URI's)</translation>
+        <translation>Vraag betaling aan (genereert QR-codes en usdi: URI's)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -427,7 +427,7 @@
     </message>
     <message>
         <source>Open a bitcoin: URI or payment request</source>
-        <translation>Open een granadeiro: URI of betalingsverzoek</translation>
+        <translation>Open een usdi: URI of betalingsverzoek</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -479,7 +479,7 @@
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
-        <translation>Toon het %1 hulpbericht om een lijst te krijgen met mogelijke Granadeiro commandoregelopties</translation>
+        <translation>Toon het %1 hulpbericht om een lijst te krijgen met mogelijke USDI commandoregelopties</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -549,7 +549,7 @@
     </message>
     <message>
         <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
-        <translation>Een fatale fout heeft zich voorgedaan. Granadeiro kan niet veilig worden verdergezet en wordt afgesloten.</translation>
+        <translation>Een fatale fout heeft zich voorgedaan. USDI kan niet veilig worden verdergezet en wordt afgesloten.</translation>
     </message>
 </context>
 <context>
@@ -852,7 +852,7 @@
     </message>
     <message>
         <source>%1 will download and store a copy of the Bitcoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>%1 zal een kopie van de Granadeiro blokketen downloaden en opslaan. Tenminste %2 GB aan data wordt opgeslagen in deze map en het zal groeien in de tijd. De portemonnee wordt ook in deze map opgeslagen.</translation>
+        <translation>%1 zal een kopie van de USDI blokketen downloaden en opslaan. Tenminste %2 GB aan data wordt opgeslagen in deze map en het zal groeien in de tijd. De portemonnee wordt ook in deze map opgeslagen.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -887,7 +887,7 @@
     </message>
     <message>
         <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the bitcoin network, as detailed below.</source>
-        <translation>Recente transacties zijn mogelijk nog niet zichtbaar. De balans van de geldbeugel is daarom mogelijk niet correct. Deze informatie is correct van zodra de synchronisatie met het Granadeiro-netwerk werd voltooid, zoals onderaan beschreven.</translation>
+        <translation>Recente transacties zijn mogelijk nog niet zichtbaar. De balans van de geldbeugel is daarom mogelijk niet correct. Deze informatie is correct van zodra de synchronisatie met het USDI-netwerk werd voltooid, zoals onderaan beschreven.</translation>
     </message>
     <message>
         <source>Attempting to spend bitcoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
@@ -1271,7 +1271,7 @@
     </message>
     <message>
         <source>Cannot start bitcoin: click-to-pay handler</source>
-        <translation>Kan granadeiro niet starten: click-to-pay handler</translation>
+        <translation>Kan usdi niet starten: click-to-pay handler</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -1287,7 +1287,7 @@
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
-        <translation>URI kan niet verwerkt worden! Dit kan het gevolg zijn van een ongeldig Granadeiro adres of misvormde URI parameters.</translation>
+        <translation>URI kan niet verwerkt worden! Dit kan het gevolg zijn van een ongeldig USDI adres of misvormde URI parameters.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -2289,7 +2289,7 @@
     </message>
     <message>
         <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>Een bericht dat werd toegevoegd aan de granadeiro: URI welke wordt opgeslagen met de transactie ter referentie. Opmerking: Dit bericht zal niet worden verzonden over het Granadeironetwerk.</translation>
+        <translation>Een bericht dat werd toegevoegd aan de usdi: URI welke wordt opgeslagen met de transactie ter referentie. Opmerking: Dit bericht zal niet worden verzonden over het Granadeironetwerk.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -3055,7 +3055,7 @@
     </message>
     <message>
         <source>Bitcoin Core</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>The %s developers</source>

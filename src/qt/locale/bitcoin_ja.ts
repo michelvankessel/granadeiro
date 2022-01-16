@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>これらは支払いを送信するためのあなたの Granadeiro アドレスです。コインを送信する前に、常に額と受信アドレスを確認してください。</translation>
+        <translation>これらは支払いを送信するためのあなたの USDI アドレスです。コインを送信する前に、常に額と受信アドレスを確認してください。</translation>
     </message>
     <message>
         <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
@@ -169,7 +169,7 @@
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
-        <translation>警告: もしもあなたのウォレットを暗号化してパスフレーズを失ってしまったなら、&lt;b&gt;あなたの Granadeiro はすべて失われます&lt;/b&gt;!</translation>
+        <translation>警告: もしもあなたのウォレットを暗号化してパスフレーズを失ってしまったなら、&lt;b&gt;あなたの USDI はすべて失われます&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -339,7 +339,7 @@
     </message>
     <message>
         <source>Send coins to a Bitcoin address</source>
-        <translation>Granadeiro アドレスにコインを送る</translation>
+        <translation>USDI アドレスにコインを送る</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -363,7 +363,7 @@
     </message>
     <message>
         <source>Bitcoin</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -391,11 +391,11 @@
     </message>
     <message>
         <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>あなたが所有していることを証明するために、あなたの Granadeiro アドレスでメッセージに署名してください</translation>
+        <translation>あなたが所有していることを証明するために、あなたの USDI アドレスでメッセージに署名してください</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
-        <translation>指定された Granadeiro アドレスで署名されたことを確認するためにメッセージを検証します</translation>
+        <translation>指定された USDI アドレスで署名されたことを確認するためにメッセージを検証します</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -427,7 +427,7 @@
     </message>
     <message>
         <source>Open a bitcoin: URI or payment request</source>
-        <translation>granadeiro: URIまたは支払いリクエストを開く</translation>
+        <translation>usdi: URIまたは支払いリクエストを開く</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -435,7 +435,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Bitcoin network</source>
-        <translation><numerusform>%n の Granadeiro ネットワークへのアクティブな接続</numerusform></translation>
+        <translation><numerusform>%n の USDI ネットワークへのアクティブな接続</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -479,7 +479,7 @@
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
-        <translation>有効な Granadeiro のコマンドライン オプションを見るために %1 のヘルプメッセージを表示します。</translation>
+        <translation>有効な USDI のコマンドライン オプションを見るために %1 のヘルプメッセージを表示します。</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -549,7 +549,7 @@
     </message>
     <message>
         <source>A fatal error occurred. Bitcoin can no longer continue safely and will quit.</source>
-        <translation>致命的なエラーが発生しました。Granadeiro は安全に継続することができず終了するでしょう。</translation>
+        <translation>致命的なエラーが発生しました。USDI は安全に継続することができず終了するでしょう。</translation>
     </message>
 </context>
 <context>
@@ -743,7 +743,7 @@
     </message>
     <message>
         <source>The entered address "%1" is not a valid Bitcoin address.</source>
-        <translation>入力されたアドレス "%1" は無効な Granadeiro アドレスです。</translation>
+        <translation>入力されたアドレス "%1" は無効な USDI アドレスです。</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1049,7 +1049,7 @@
     </message>
     <message>
         <source>Automatically open the Bitcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>自動的にルーター上の Granadeiro クライアントのポートを開きます。あなたのルーターが UPnP に対応していて、それが有効になっている場合に作動します。</translation>
+        <translation>自動的にルーター上の USDI クライアントのポートを開きます。あなたのルーターが UPnP に対応していて、それが有効になっている場合に作動します。</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1196,7 +1196,7 @@
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>表示された情報は古いかもしれません。接続が確立されると、あなたのウォレットは Granadeiro ネットワークと自動的に同期しますが、このプロセスはまだ完了していません。</translation>
+        <translation>表示された情報は古いかもしれません。接続が確立されると、あなたのウォレットは USDI ネットワークと自動的に同期しますが、このプロセスはまだ完了していません。</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1271,7 +1271,7 @@
     </message>
     <message>
         <source>Cannot start bitcoin: click-to-pay handler</source>
-        <translation>Granadeiro を起動できません: click-to-pay handler</translation>
+        <translation>USDI を起動できません: click-to-pay handler</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -1287,7 +1287,7 @@
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
-        <translation>URI を解析できません! これは無効な Granadeiro アドレスあるいや不正な形式の URI パラメーターによって引き起こされる場合があります。</translation>
+        <translation>URI を解析できません! これは無効な USDI アドレスあるいや不正な形式の URI パラメーターによって引き起こされる場合があります。</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -2289,7 +2289,7 @@
     </message>
     <message>
         <source>A message that was attached to the bitcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Bitcoin network.</source>
-        <translation>granadeiro: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはGranadeiroネットワークを通して送信されるわけではありません。</translation>
+        <translation>usdi: URIに添付されていたメッセージです。これは参照用としてトランザクションとともに保存されます。注意：このメッセージはGranadeiroネットワークを通して送信されるわけではありません。</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2370,7 +2370,7 @@
     </message>
     <message>
         <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>この Granadeiro アドレスを所有していることを証明するためにメッセージに署名</translation>
+        <translation>この USDI アドレスを所有していることを証明するためにメッセージに署名</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2398,7 +2398,7 @@
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Bitcoin address</source>
-        <translation>指定された Granadeiro アドレスで署名されたことを保証するメッセージを検証</translation>
+        <translation>指定された USDI アドレスで署名されたことを保証するメッセージを検証</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -3059,7 +3059,7 @@
     </message>
     <message>
         <source>Bitcoin Core</source>
-        <translation>Granadeiro</translation>
+        <translation>USDI</translation>
     </message>
     <message>
         <source>The %s developers</source>
