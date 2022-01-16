@@ -102,7 +102,7 @@ public:
         consensus.posLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimitV2 = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 16 * 60; // 16 mins
-        consensus.nTargetSpacingV1 = 60;
+        consensus.nTargetSpacingV1 = 64;
         consensus.nTargetSpacing = 64;
         consensus.BIP34Height = -1;
         consensus.BIP34Hash = uint256();
@@ -191,11 +191,11 @@ public:
 
         checkpointData = (CCheckpointData) {
                     boost::assign::map_list_of
-                    (0, uint256S("0x000007c3587c4ff78ce05a271d84ff520cbe3fd80dc9a9fe4498533f5665e493")),
+                    (0, uint256S("0x00000e4e5df1d61a650375ad5d508a433cc922d6050d5b0700cc8b75f5657142")),
                     1642330800, // * UNIX timestamp of last checkpoint block
                     0,    // * total number of transactions between genesis and last checkpoint
                                 //   (the tx=... number in the SetBestChain debug.log lines)
-                    0      // * estimated number of transactions per day after checkpoint
+                    1400      // * estimated number of transactions per day after checkpoint
         };
     }
 };
@@ -216,7 +216,7 @@ public:
         consensus.posLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimitV2 = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 16 * 60; // 16 mins
-        consensus.nTargetSpacingV1 = 60;
+        consensus.nTargetSpacingV1 = 64;
         consensus.nTargetSpacing = 64;
         consensus.BIP34Height = -1;
         consensus.BIP34Hash = uint256();
@@ -300,10 +300,10 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            ( 0, uint256S("0x00006ee13902b57c5adea447fd66fdfdc3020404d41cf938d3c3c37a20145e9c")),
+            ( 0, uint256S("0x0000df0889e4335f8b5888df1a4b818799b610d2f7fa2e9cf85439d96da8cb1f")),
             1642330800,
             0,
-            0
+            1400
         };
 
     }
@@ -325,7 +325,7 @@ public:
         consensus.posLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimitV2 = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 16 * 60; // 16 mins
-        consensus.nTargetSpacingV1 = 60;
+        consensus.nTargetSpacingV1 = 64;
         consensus.nTargetSpacing = 64;
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
         consensus.BIP34Hash = uint256();
@@ -339,7 +339,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00");
+        consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000000000100001");
 
         /*
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
