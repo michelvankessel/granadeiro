@@ -145,9 +145,9 @@ public:
         nDefaultPort = 7333;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1642330800, 154297, 0x1e0fffff, 1, 0);
+        genesis = CreateGenesisBlock(1642330800, 521627, 0x1e0fffff, 1, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-        // calculate main genesis block
+        /* calculate main genesis block
         consensus.hashGenesisBlock = uint256S("0x00");
         if (true && (genesis.GetHash() != consensus.hashGenesisBlock)) {
 		std::cout << std::string("Calculating main genesis block...\n");
@@ -167,9 +167,9 @@ public:
             std::cout << "time: " << genesis.nTime << "\n";
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: " << genesis.hashMerkleRoot.ToString().c_str() << "\n";
-        }
-        assert(consensus.hashGenesisBlock == uint256S("0x00000250d7c73e7599167a8fcc490509065e51dc5d09194ff25f7b69e1da9e05"));
-        assert(genesis.hashMerkleRoot == uint256S("0x815341fce99463fa860396738622f063570718229acffff9674eb3e424a75cf7"));
+        }*/
+        assert(consensus.hashGenesisBlock == uint256S("0x00000e4e5df1d61a650375ad5d508a433cc922d6050d5b0700cc8b75f5657142"));
+        assert(genesis.hashMerkleRoot == uint256S("0x958b166e8024b495fd41943dbbd0b848c05673a1f6a372ab1aa1fd8c6a09b203"));
 
         vSeeds.push_back(CDNSSeedData("seed1.usdicoin.com", "seed1.usdicoin.com"));
         vSeeds.push_back(CDNSSeedData("seed2.usdicoin.com", "seed2.usdicoin.com"));
@@ -254,7 +254,7 @@ public:
 
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1642330800, 44058, 0x1f00ffff, 1, 0);
+        genesis = CreateGenesisBlock(1642330800, 73770, 0x1f00ffff, 1, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
         /* calculate testnet genesis block
         consensus.hashGenesisBlock = uint256S("0x00");
@@ -277,8 +277,8 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: " << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }*/
-        assert(consensus.hashGenesisBlock == uint256S("0x0000786c3657b12b383cc0e5cf16225a8d245e1110a92858bb3780279e2365d2"));
-        assert(genesis.hashMerkleRoot == uint256S("0x815341fce99463fa860396738622f063570718229acffff9674eb3e424a75cf7"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000df0889e4335f8b5888df1a4b818799b610d2f7fa2e9cf85439d96da8cb1f"));
+        assert(genesis.hashMerkleRoot == uint256S("0x958b166e8024b495fd41943dbbd0b848c05673a1f6a372ab1aa1fd8c6a09b203"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -362,7 +362,7 @@ public:
         nDefaultPort = 27333;
         nPruneAfterHeight = 100000;
 
-	genesis = CreateGenesisBlock(1642330800, 5891, 0x1f0fffff, 1, 0);
+	genesis = CreateGenesisBlock(1642330800, 1122, 0x1f0fffff, 1, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
         /* calculate regtest genesis block
         consensus.hashGenesisBlock = uint256S("0x00");
@@ -385,8 +385,8 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: " << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }*/
-        assert(consensus.hashGenesisBlock == uint256S("0x000162f9e5b6108893722360a48aed8802166bdd6d0fb617be7fa3306275259a"));
-        assert(genesis.hashMerkleRoot == uint256S("815341fce99463fa860396738622f063570718229acffff9674eb3e424a75cf7"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00073b94a7e2a27e8f009ceb7ec147096d0c0b6dc429fd47429b0ede8f2b4ddc"));
+        assert(genesis.hashMerkleRoot == uint256S("0x958b166e8024b495fd41943dbbd0b848c05673a1f6a372ab1aa1fd8c6a09b203"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
