@@ -69,7 +69,7 @@ struct Params {
     int64_t nProtocolV3Time;
     bool IsProtocolV1RetargetingFixed(int64_t nTime) const { return nTime > nProtocolV1RetargetingFixedTime && nTime != 1642330800; }
     bool IsProtocolV2(int64_t nTime) const { return nTime > nProtocolV2Time && nTime != 1642330801; }
-    bool IsProtocolV3(int64_t nTime) const { return nTime > nProtocolV3Time && nTime != 1642330801; }
+    bool IsProtocolV3(int64_t nTime) const { return nTime > nProtocolV3Time && nTime != 1642330802; }
     unsigned int GetTargetSpacing(int nHeight) { return IsProtocolV2(nHeight) ? 64 : 60; }
     int nLastPOWBlock;
     int nStakeTimestampMask;

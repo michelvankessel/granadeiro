@@ -124,7 +124,7 @@ public:
 
         consensus.nProtocolV1RetargetingFixedTime = 1642330800;
         consensus.nProtocolV2Time = 1642330801;
-        consensus.nProtocolV3Time = 1642330801;
+        consensus.nProtocolV3Time = 1642330802;
         consensus.nLastPOWBlock = 10000;
         consensus.nStakeTimestampMask = 0xf; // 15
         consensus.nCoinbaseMaturity = 240;
@@ -231,7 +231,7 @@ public:
 
         consensus.nProtocolV1RetargetingFixedTime = 1642330800;
         consensus.nProtocolV2Time = 1642330801;
-        consensus.nProtocolV3Time = 1642330801;
+        consensus.nProtocolV3Time = 1642330802;
         consensus.nLastPOWBlock = 0x7fffffff;
         consensus.nStakeTimestampMask = 0xf;
         consensus.nCoinbaseMaturity = 10;
