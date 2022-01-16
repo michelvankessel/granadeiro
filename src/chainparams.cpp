@@ -325,7 +325,7 @@ public:
         consensus.posLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.posLimitV2 = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 16 * 60; // 16 mins
-        consensus.nTargetSpacingV1 = 64;
+        consensus.nTargetSpacingV1 = 60;
         consensus.nTargetSpacing = 64;
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
         consensus.BIP34Hash = uint256();
