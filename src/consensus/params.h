@@ -62,8 +62,6 @@ struct Params {
     int64_t nTargetSpacing;
     int64_t nTargetTimespan;
     int64_t DifficultyAdjustmentInterval() const { return nTargetTimespan / nTargetSpacing; }
-    int64_t nProtocolV3Time;
-    bool IsProtocolV3(int64_t nTime) const { return nTime > nProtocolV3Time && nTime != 1642330802; }
     unsigned int GetTargetSpacing(int nHeight) { return nTargetSpacing; }
     int nLastPOWBlock;
     int nStakeTimestampMask;

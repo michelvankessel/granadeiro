@@ -57,9 +57,12 @@ int64_t FutureDrift(int64_t nTime)
 {
 	// loose policy for FutureDrift in regtest mode
 	if (Params().GetConsensus().fPowNoRetargeting && chainActive.Height() <= Params().GetConsensus().nLastPOWBlock) {
-	         return nTime + 24 * 60 * 60;
+	    return nTime + 24 * 60 * 60;
 	}
-    return Params().GetConsensus().IsProtocolV3(nTime) ? nTime + 15 : nTime + 10 * 60;
+    else if (chainActive.Height() <= (Params().GetConsensus().nLastPOWBlock)) {
+        return nTime + 10 * 60;
+    }
+    return nTime + 15;
 }
 
 bool IsStandardTx(const CTransaction& tx, std::string& reason)

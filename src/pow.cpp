@@ -58,10 +58,8 @@ unsigned int CalculateNextTargetRequired(const CBlockIndex* pindexLast, int64_t 
     int64_t nActualSpacing = pindexLast->GetBlockTime() - nFirstBlockTime;
 
     // Limit adjustment step
-    if (nActualSpacing < 0)
-        nActualSpacing = nTargetSpacing;
-    if (params.IsProtocolV3(pindexLast->GetBlockTime()) && nActualSpacing > nTargetSpacing*10)
-        nActualSpacing = nTargetSpacing*10;
+    if (nActualSpacing > nTargetSpacing * 10)
+        nActualSpacing = nTargetSpacing * 10;
 
     // retarget with exponential moving toward target spacing
     const arith_uint256 bnTargetLimit = GetTargetLimit(pindexLast->GetBlockTime(), params, fProofOfStake);

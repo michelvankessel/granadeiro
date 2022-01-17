@@ -2435,7 +2435,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                         REJECT_INVALID, "bad-diffbits");
 
     // Check proof-of-stake
-    if (block.IsProofOfStake() && chainparams.GetConsensus().IsProtocolV3(block.GetBlockTime())) {
+    if (block.IsProofOfStake()) {
          const COutPoint &prevout = block.vtx[1].vin[0].prevout;
          const CCoins *coins = view.AccessCoins(prevout.hash);
           if (!coins)
@@ -2510,8 +2510,8 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     // USDI also requires low S in sigs
     flags |= SCRIPT_VERIFY_LOW_S;
 
-    // Start enforcing CHECKLOCKTIMEVERIFY, (BIP65) since protocol v3
-    if (chainparams.GetConsensus().IsProtocolV3(block.GetBlockTime())) {
+    // Start enforcing CHECKLOCKTIMEVERIFY, (BIP65) since since POS
+    if (block.IsProofOfStake()) {
         flags |= SCRIPT_VERIFY_CHECKLOCKTIMEVERIFY;
         flags |= SCRIPT_VERIFY_NULLDUMMY;
     }
@@ -2613,7 +2613,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                                        REJECT_INVALID, "bad-cb-amount");
     }
 
-    if (block.IsProofOfStake() && chainparams.GetConsensus().IsProtocolV3(block.GetBlockTime())) {
+    if (block.IsProofOfStake()) {
             CAmount blockReward = nFees + GetProofOfStakeSubsidy();
             if (nActualStakeReward > blockReward)
                 return state.DoS(100,
@@ -3529,10 +3529,6 @@ static bool CheckBlockSignature(const CBlock& block)
 
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW)
 {
-    // Check block version
-    if (block.nVersion < 7 && consensusParams.IsProtocolV3(block.GetBlockTime()))
-        return state.DoS(100, false, REJECT_OBSOLETE, "bad-version", false, strprintf("rejected nVersion=%d block", block.nVersion));
-
     // Check proof of work hash
     if (fCheckPOW && !CheckProofOfWork(block.GetHash(), block.nBits, consensusParams))
         return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
