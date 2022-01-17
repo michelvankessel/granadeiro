@@ -306,10 +306,7 @@ public:
 
     int64_t GetPastTimeLimit() const
     {
-        if (Params().GetConsensus().IsProtocolV3(GetBlockTime()))
-            return GetBlockTime();
-        else
-            return GetMedianTimePast();
+        return GetBlockTime();
     }
 
     bool IsProofOfWork() const
