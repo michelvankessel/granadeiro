@@ -99,10 +99,8 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.posLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.posLimitV2 = uint256S("000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.posLimit = uint256S("000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 16 * 60; // 16 mins
-        consensus.nTargetSpacingV1 = 64;
         consensus.nTargetSpacing = 64;
         consensus.BIP34Height = -1;
         consensus.BIP34Hash = uint256();
@@ -122,7 +120,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 0; // out of time
         */
 
-        consensus.nProtocolV1RetargetingFixedTime = 1642330800;
         consensus.nProtocolV2Time = 1642330801;
         consensus.nProtocolV3Time = 1642330802;
         consensus.nLastPOWBlock = 10000;
@@ -213,10 +210,8 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.posLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.posLimitV2 = uint256S("000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.posLimit = uint256S("000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 16 * 60; // 16 mins
-        consensus.nTargetSpacingV1 = 64;
         consensus.nTargetSpacing = 64;
         consensus.BIP34Height = -1;
         consensus.BIP34Hash = uint256();
@@ -229,7 +224,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
 
-        consensus.nProtocolV1RetargetingFixedTime = 1642330800;
         consensus.nProtocolV2Time = 1642330801;
         consensus.nProtocolV3Time = 1642330802;
         consensus.nLastPOWBlock = 0x7fffffff;
@@ -322,10 +316,8 @@ public:
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
         consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.posLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.posLimitV2 = uint256S("000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.posLimit = uint256S("000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nTargetTimespan = 16 * 60; // 16 mins
-        consensus.nTargetSpacingV1 = 64;
         consensus.nTargetSpacing = 64;
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
         consensus.BIP34Hash = uint256();
@@ -347,7 +339,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 0; // out of time
         */
 
-        consensus.nProtocolV1RetargetingFixedTime = 1642330800;
         consensus.nProtocolV2Time = 1642330801;
         consensus.nProtocolV3Time = 1642330802;
         consensus.nLastPOWBlock = 10000;

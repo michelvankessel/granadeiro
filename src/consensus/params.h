@@ -56,21 +56,15 @@ struct Params {
     /** Proof of work parameters */
     uint256 powLimit;
     uint256 posLimit;
-    uint256 posLimitV2;
     bool fPowAllowMinDifficultyBlocks;
-    int64_t nTargetSpacingV1;
     bool fPowNoRetargeting;
     bool fPoSNoRetargeting;
     int64_t nTargetSpacing;
     int64_t nTargetTimespan;
     int64_t DifficultyAdjustmentInterval() const { return nTargetTimespan / nTargetSpacing; }
-    int64_t nProtocolV1RetargetingFixedTime;
-    int64_t nProtocolV2Time;
     int64_t nProtocolV3Time;
-    bool IsProtocolV1RetargetingFixed(int64_t nTime) const { return nTime > nProtocolV1RetargetingFixedTime && nTime != 1642330800; }
-    bool IsProtocolV2(int64_t nTime) const { return nTime > nProtocolV2Time && nTime != 1642330801; }
     bool IsProtocolV3(int64_t nTime) const { return nTime > nProtocolV3Time && nTime != 1642330802; }
-    unsigned int GetTargetSpacing(int nHeight) { return IsProtocolV2(nHeight) ? 64 : 64; }
+    unsigned int GetTargetSpacing(int nHeight) { return nTargetSpacing; }
     int nLastPOWBlock;
     int nStakeTimestampMask;
     int nCoinbaseMaturity;
