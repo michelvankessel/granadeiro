@@ -39,7 +39,7 @@ QString TransactionDesc::FormatTxStatus(const CWalletTx& wtx)
             return tr("%1/offline").arg(nDepth);
         else if (nDepth == 0)
             return tr("0/unconfirmed, %1").arg((wtx.InMempool() ? tr("in memory pool") : tr("not in memory pool"))) + (wtx.isAbandoned() ? ", "+tr("abandoned") : "");
-        else if (nDepth < 10)
+        else if (nDepth < 11)
             return tr("%1/unconfirmed").arg(nDepth);
         else
             return tr("%1 confirmations").arg(nDepth);
