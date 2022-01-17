@@ -76,22 +76,6 @@ int64_t UpdateTime(CBlock* pblock, const Consensus::Params& consensusParams, con
     return nNewTime - nOldTime;
 }
 
-// miner's coin base reward (POW)
-CAmount GetProofOfWorkReward()
-{
-    CAmount nSubsidy;
-    int nBlockHeight = chainActive.Height() + 1;
-
-    if (nBlockHeight <= 10) {
-      CAmount nSubsidy = 2217000000 * COIN;
-    }
-    if (nBlockHeight >= 11) {
-      CAmount nSubsidy = COIN * 1 / 20;
-    }
-
-    return nSubsidy;
-}
-
 int64_t GetMaxTransactionTime(CBlock* pblock)
     {
         int64_t maxTransactionTime = 0;
