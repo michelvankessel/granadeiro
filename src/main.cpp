@@ -1782,8 +1782,10 @@ CAmount GetProofOfWorkSubsidy()
 {
     int nBlockHeight = chainActive.Height() + 1;
 
-    if (nBlockHeight <= 10) 
-         return 2217000000 * COIN;
+    if (nBlockHeight <= 400) 
+         return 15000 * COIN;
+    else if (nBlockHeight > 400 && nBlockHeight <=800)
+         return 5532500 * COIN;       
     else
          return COIN * 1 / 20;
 }
