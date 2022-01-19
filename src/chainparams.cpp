@@ -120,12 +120,12 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 0; // out of time
         */
 
-        consensus.nLastPOWBlock = 10000;
+        consensus.nLastPOWBlock = 2200;
         consensus.nStakeTimestampMask = 0xf; // 15
         consensus.nCoinbaseMaturity = 240;
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000562603d13b56827");
+        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000018570d686f43f691"); //block 2187 
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -334,7 +334,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 0; // out of time
         */
 
-        consensus.nLastPOWBlock = 10000;
+        consensus.nLastPOWBlock = 2200;
         consensus.nStakeTimestampMask = 0xf;
         consensus.nCoinbaseMaturity = 10;
 
